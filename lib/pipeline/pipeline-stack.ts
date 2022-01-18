@@ -1,6 +1,7 @@
 import * as CDK from "aws-cdk-lib";
 import * as Pipeline from "aws-cdk-lib/pipelines";
 import { Construct } from "constructs";
+import { CognitoStage } from "./pipeline-stage";
 
 interface PipelineStackProps extends CDK.StackProps {
   branch: string;
@@ -25,5 +26,15 @@ export class PipelineStack extends CDK.Stack {
         commands: ["npm ci", "npm run build", "npx cdk synth"],
       }),
     });
+
+    const cognitoStage = new CognitoStage(this, props.branch.concat("Stage"), {
+      branch: props.branch,
+      env: {
+        account: props.awsAccount,
+        region: props.awsRegion,
+      },
+    });
+
+    pipeline.addStage(cognitoStage);
   }
 }
