@@ -14,7 +14,7 @@ export class ProductsFetchStack extends CDK.Stack {
       "ProductsFetch",
       {
         functionName: "ProductsFetch",
-        entry: "lambda/products/productsFetchFuncions.js",
+        entry: "lambda/products/productsFetchFunctions.js",
         handler: "handler",
         bundling: {
           minify: true,

@@ -7,7 +7,7 @@ interface CognitoStageProps extends CDK.StackProps {
   branch: string;
 }
 
-export class CognitoStage extends CDK.Stack {
+export class CognitoStage extends CDK.Stage {
   constructor(scope: Construct, id: string, props: CognitoStageProps) {
     super(scope, id, props);
 

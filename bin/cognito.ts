@@ -14,14 +14,14 @@ new PipelineStack(app, "CognitoDevPipelineStack", {
   },
 });
 
-// new PipelineStack(app, "CognitoProdPipelineStack", {
-//   branch: "prod",
-//   awsRegion: "sa-east-1",
-//   awsAccount: "970857331170",
-//   env: {
-//     account: "088048809983",
-//     region: "sa-east-1",
-//   },
-// });
+new PipelineStack(app, "CognitoProdPipelineStack", {
+  branch: "prod",
+  awsRegion: "sa-east-1",
+  awsAccount: "970857331170",
+  env: {
+    account: "088048809983",
+    region: "sa-east-1",
+  },
+});
 
 app.synth();
